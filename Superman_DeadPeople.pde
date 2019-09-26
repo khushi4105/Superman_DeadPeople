@@ -1,30 +1,46 @@
 PImage BuildingFireImage;
-int[] LuckyPeople = new int[7];
+int[] LPx = new int[5];
+int[] LPy = new int [5];
+int[] ULPx = new int [3];
+int [] ULPy = new int [3];
 
 
 
 void setup ()
 {
- size(1000,700); 
- BuildingFireImage = loadImage("BuildingFire.png");
- BuildingFireImage.resize(1000,700);
+  size(1000, 700); 
+  BuildingFireImage = loadImage("BuildingFire.png");
+  BuildingFireImage.resize(1000, 700);
+
+  for (int i = 0; i<5; i++)
+  {
+    LPx[i] = (int)random(0, 1000);
+    LPy[i] = (int)random(0, 700);
+  }
+
+  for (int i = 0; i<3; i++)
+  {
+    ULPx[i] = (int)random(0, 1000);
+    ULPy[i] = (int)random(0, 700);
+  }
 }
 
 
 
 void draw ()
 { 
-image(BuildingFireImage, 0, 0);
+  image(BuildingFireImage, 0, 0);
 
-  for (int i=0; i<10; i++)
+  for (int i=0; i<5; i++)
   {
-    Draw LuckyPeople(x,y);
-    LuckyPeople[i] = LuckyPeople[i] + 2
+    LuckyPeople(LPx[i], LPy[i]);
+    LPy[i] = LPy[i] + 2;
+  }
 
-    if (LuckyPeople[i] < 695)
-    {
-      LuckyPeople[i] = (int)random(0,700);
-    }
+  for (int i=0; i<3; i++)
+  {
+    UNLuckyPeople(ULPx[i], ULPy[i]);
+    ULPy[i] = ULPy[i] + 2;
   }
 }
 
@@ -32,7 +48,16 @@ image(BuildingFireImage, 0, 0);
 
 void LuckyPeople(int x, int y)
 {
-  fill(255,255,255);
-  ellipse(70,70,x,y);
-  rect(30,50,x+40, y);
+  fill(255, 255, 255);
+  ellipse(x,y,30,30);
+  rect(x-15, y+15, 10, 30);
+  rect(x+6, y+15, 10, 30);
+}
+
+void UNLuckyPeople(int x, int y)
+{
+  fill(0, 0, 0);
+  ellipse(x,y,30,30);
+  rect(x-15, y+15, 10, 30);
+  rect(x+6, y+15, 10,30);
 }
