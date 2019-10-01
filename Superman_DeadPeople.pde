@@ -1,5 +1,6 @@
 // IN THIS GAME, THERE IS A BUILDING FIRE. THEREFORE, SUPERMAN HAS TO SAVE ALL THE GREEN PEOPLE AND AVOID ALL THE RED PEOPLE. 
 //IF HE SAVES THE GREEN PEOPLE, YOU GET A POINT HOWEVER IF HE SAVES A RED PERSON, YOU LOSE A POINT
+//BECAUSE OF THE LARGER AMOUNT OF UNLUCKY PEOPLE ON SCREEN, I HAVE KEPT A TARGET OF WINNING THE GAME IF YOU SUPERMAN SAVES 90 PEOPLE 
 
 //LP = Lucky People: Green
 //ULP = Unlucky People: Red
@@ -9,8 +10,8 @@ PImage BuildingFireImage;
 PImage SupermanFlyingImage;
 int[] LPx = new int[5];
 int[] LPy = new int [5];
-int[] ULPx = new int [3];
-int [] ULPy = new int [3];
+int[] ULPx = new int [15];
+int [] ULPy = new int [15];
 int score = 0;
 
 
@@ -30,7 +31,7 @@ void setup ()
     LPy[i] = (int)random(0, 700);
   }
 
-  for (int i = 0; i<3; i++)
+  for (int i = 0; i<15; i++)
   {
     ULPx[i] = (int)random(0, 1000);
     ULPy[i] = (int)random(0, 700);
@@ -66,7 +67,7 @@ void draw ()
   }
 
   // THIS FOR LOOP DEALS WITH THE UNLUCKY PEOPLE COMMANDS 
-  for (int i=0; i<3; i++)
+  for (int i=0; i<15; i++)
   {
     UNLuckyPeople(ULPx[i], ULPy[i]);
     ULPy[i] = ULPy[i] + 1;
